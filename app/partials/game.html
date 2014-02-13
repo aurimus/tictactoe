@@ -1,0 +1,11 @@
+<div ng-controller="GameController">
+  <div class="ind">{{whoHasWon()}}</div>
+  <table>
+    <tr ng-repeat="row in values track by $index">
+      <td ng-repeat="val in row track by $index" ng-click="playerMove('X', $index, $parent.$index)" ng-right-click="playerMove('O', $index, $parent.$index)">
+        {{val}}
+      </td>
+    </tr>
+  </table>
+  <button ng-click="reset()">Reset</button>
+</div>

@@ -1,0 +1,17 @@
+/* app css stylesheet */
+
+table {
+  margin: auto;
+}
+
+table td {
+  border: 1px black solid;
+  width: 100px;
+  height: 100px;
+  font-size: 80px;
+  text-align: center;
+}
+
+.ind{
+  font-size: 50px;
+}
