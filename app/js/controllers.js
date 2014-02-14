@@ -23,6 +23,9 @@ angular.module('myApp.controllers', []).
       [[0,2],[1,1],[2,0]], // pattern 7
     ]
 
+    $scope.playWith = 'X';
+    $scope.startsPlay = 'X';
+
     /* Public */
 
     $scope.reset = function () {
@@ -31,15 +34,12 @@ angular.module('myApp.controllers', []).
         [null, null, null],
         [null, null, null]
       ];
-
-      $scope.playWith = null;
       $scope.winner = null;
+      if ($scope.playWith != $scope.startsPlay) $scope.AIMove()
     }
     $scope.reset();
 
-    $scope.playerMove = function(which, x, y) {
-      if ($scope.playWith == null) $scope.playWith = which;
-
+    $scope.playerMove = function(x, y) {
       if ($scope.values[y][x] == null){
         // Player move
         if(! $scope.winner) $scope.values[y][x] = $scope.playWith;
@@ -95,20 +95,19 @@ angular.module('myApp.controllers', []).
     function getMostFilled (predicate) {
       var bestPatterns = {}
       var occupiedPatterns = getOccupiedPatterns()
-      
+
       for (var i = winPatters.length - 1; i >= 0; i--) {
-        if (predicate)
-          var i_filled = getNumFilled(winPatters[i], predicate) //- getNumFilled(winPatters[i], predicate == 'X' ? 'O' : 'X')
-        else
-          var i_filled = getNumFilled(winPatters[i])
-        if (bestPatterns[i_filled] == undefined) bestPatterns[i_filled] = []
-        bestPatterns[i_filled].push(i)
+        if (occupiedPatterns.indexOf(i) == -1){
+          var i_filled = getNumFilled(winPatters[i], predicate)
+          if (bestPatterns[i_filled] == undefined) bestPatterns[i_filled] = []
+          bestPatterns[i_filled].push(i)
+        }
       }
 
       var occupiedPatterns = getOccupiedPatterns()
       
       for (var k = 3; k >= 0; k--) {
-        if (bestPatterns[k] && _.difference(bestPatterns[k], occupiedPatterns).length > 0) 
+        if (bestPatterns[k] && bestPatterns[k].length > 0) 
           return bestPatterns[k];
       };
     }

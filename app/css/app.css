@@ -15,3 +15,7 @@ table td {
 .ind{
   font-size: 50px;
 }
+
+#options{
+  float: left;
+}

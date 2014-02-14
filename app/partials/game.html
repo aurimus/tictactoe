@@ -2,10 +2,22 @@
   <div class="ind">{{whoHasWon()}}</div>
   <table>
     <tr ng-repeat="row in values track by $index">
-      <td ng-repeat="val in row track by $index" ng-click="playerMove('X', $index, $parent.$index)" ng-right-click="playerMove('O', $index, $parent.$index)">
+      <td ng-repeat="val in row track by $index" ng-click="playerMove($index, $parent.$index)" ng-right-click="playerMove($index, $parent.$index)">
         {{val}}
       </td>
     </tr>
   </table>
-  <button ng-click="reset()">Reset</button>
+
+  <div id="options">
+    <button ng-click="reset()">Reset</button>
+    <!--<button ng-click="AIMove()">AI move</button> -->
+    <br/>
+    Play with:
+    <input type="radio" ng-model="playWith" value="X">X
+    <input type="radio" ng-model="playWith" value="O">O
+    <br/>
+    Starts play:
+    <input type="radio" ng-model="startsPlay" value="X">X
+    <input type="radio" ng-model="startsPlay" value="O">O
+  </div>
 </div>
