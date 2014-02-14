@@ -94,6 +94,8 @@ angular.module('myApp.controllers', []).
 
     function getMostFilled (predicate) {
       var bestPatterns = {}
+      var occupiedPatterns = getOccupiedPatterns()
+      
       for (var i = winPatters.length - 1; i >= 0; i--) {
         if (predicate)
           var i_filled = getNumFilled(winPatters[i], predicate) //- getNumFilled(winPatters[i], predicate == 'X' ? 'O' : 'X')

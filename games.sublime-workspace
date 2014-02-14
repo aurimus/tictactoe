@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"patt",
+				"patterns"
+			],
+			[
+				"e",
+				"EmptyNum"
+			],
+			[
+				"X",
+				"Xnum"
+			],
+			[
 				"bes",
 				"bestPatterns"
 			],
@@ -171,7 +183,7 @@
 			"file": "app/js/controllers.js",
 			"settings":
 			{
-				"buffer_size": 4228,
+				"buffer_size": 4775,
 				"line_ending": "Unix"
 			}
 		},
@@ -367,6 +379,8 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"getOccupiedPatterns",
+			"isOccupiedPattern",
 			"getMostFilled",
 			"bestPatternNums",
 			"i",
@@ -473,15 +487,15 @@
 					"file": "app/js/controllers.js",
 					"settings":
 					{
-						"buffer_size": 4228,
+						"buffer_size": 4775,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2830,
-								2842
+								2459,
+								2459
 							]
 						],
 						"settings":
@@ -538,7 +552,7 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 3498.0,
+						"translation.y": 2570.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
